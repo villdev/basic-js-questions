@@ -101,8 +101,8 @@ console.log(createFiboSeries(9)); // [0,1,1,2,3,5,8,13,21]
 const findFactorial = (num) => {
   let signFlag = 1;
   if(num < 0) {
-    signFlag = -1;
-   	num *= signFlag;
+     signFlag = -1;
+     num *= signFlag;
   }
   if(num === 0)
     return 1;
