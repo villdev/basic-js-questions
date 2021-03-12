@@ -43,22 +43,89 @@ console.log(has31Days(9)); // Does not have 31 days //string can be checked in t
 1. Fizzbuzz - Write a program to return an array from 1 to 100. But for every multiple of 3, replace the number with "Fizz", for every multiple of 5, replace the number with "Buzz" and for every multiples of 3 & 5, replace with "FizzBuzz".
 
 Your output should look something like this `1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, 16, 17 ..... `
+```javascript
+const FizzBuzz = () => {
+  let arr = [];
+  for(i=1; i < 101; i++) {
+    let temp = i%3 === 0 ? (i%5 === 0 ? "FizzBuzz" : "Fizz" ): (i%5 === 0 ? "Buzz": i );
+    arr = [...arr, temp]; //can also do arr[arr.length] = temp;
+  }
+  return arr;
+}
+console.log(FizzBuzz()); // [1,2,Fizz,4,...]
+```
 
-1. Print the following star pattern :-
+2. Print the following star pattern :-
 
     \* \
     \* \* \
     \* \* \* \
     \* \* \* \* \
     \* \* \* \* \*
+```javascript
+const printStarPattern = (row) => {
+  let temp = "";
+  for(let i = 0; i < row; i++) {
+    for(let j = i; j>= 0 ; j--)
+      temp += "*";
+    temp += "\n";
+  }
+  console.log(temp);
+}
+printStarPattern(5); 
+```
 
-1. Write a program to take a number input from user and print multiplication table 12 times for that number.
+3. Write a program to take a number input from user and print multiplication table 12 times for that number.
+```javascript
+const printMultTable = (num) => {
+  for(let i = 1; i < 13; i++) 
+    console.log(`${num} x ${i} = ${num*i}`)
+}
+printMultTable(5);// 5 x 1 = 5 // 5 x 2 = 10 // ...
+```
 
-1. Write a program to return a Fibonacci series : 0,1,1,2,3,5,8,13,21....
+4. Write a program to return a Fibonacci series : 0,1,1,2,3,5,8,13,21....
+```javascript
+const createFiboSeries = (num) => {
+  let fiboArr = [0, 1];
+  for( i = 2; i < num; i++)
+    fiboArr = [...fiboArr, fiboArr[i-2] + fiboArr[i-1]]; //can also do fiboArr[fiboArr.length] = ...
+  return num === 1 ? [0] : (num > 1 ? fiboArr : ["error"] );
+}
+console.log(createFiboSeries(9)); // [0,1,1,2,3,5,8,13,21]
+```
 
-1. Write a program to take an input from a user and find its Factorial.
+5. Write a program to take an input from a user and find its Factorial.
    `Example: Factorial of 5 is 120`
-1. Write a Program to take a number input from user and find if the number is Prime or not.
+```javascript
+const findFactorial = (num) => {
+  let signFlag = 1;
+  if(num < 0) {
+    signFlag = -1;
+   	num *= signFlag;
+  }
+  if(num === 0)
+    return 1;
+  let facto =  num * findFactorial(num-1);
+  return signFlag*facto;
+}
+console.log("Factorial of 5 is: ", findFactorial(5)); // Factorial of 5 is: 120
+```
+6. Write a Program to take a number input from user and find if the number is Prime or not.
+```javascript
+const isPrime = (num) => {
+  for( i = 2; i < num / 2; i++) {
+		if( num%i === 0)
+         return false;
+  }
+  return num <= 0 ? false : true;
+}
+console.log(isPrime(7)); // true
+```
 
-1. Write a program to take a day as an input and determine whether it is a weekday or weekend.
+7. Write a program to take a day as an input and determine whether it is a weekday or weekend.
    `Example: Tuesday is weekday.`
+```javascript
+const checkDay = (day) => ["saturday","sunday"].includes(day.toLowerCase()) ? `${day} is weekend.`: `${day} is weekday.`;
+console.log(checkDay("Tuesday")); // Tuesday is weekday.
+```
