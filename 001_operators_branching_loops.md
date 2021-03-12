@@ -48,7 +48,7 @@ const FizzBuzz = () => {
   let arr = [];
   for(i=1; i < 101; i++) {
     let temp = i%3 === 0 ? (i%5 === 0 ? "FizzBuzz" : "Fizz" ): (i%5 === 0 ? "Buzz": i );
-    arr = [...arr, temp]; //can also do arr[arr.length] = temp;
+    arr = [...arr, temp]; //arr[arr.length] = temp;
   }
   return arr;
 }
@@ -89,7 +89,7 @@ printMultTable(5);// 5 x 1 = 5 // 5 x 2 = 10 // ...
 const createFiboSeries = (num) => {
   let fiboArr = [0, 1];
   for( i = 2; i < num; i++)
-    fiboArr = [...fiboArr, fiboArr[i-2] + fiboArr[i-1]]; //can also do fiboArr[fiboArr.length] = ...
+    fiboArr = [...fiboArr, fiboArr[i-2] + fiboArr[i-1]]; 
   return num === 1 ? [0] : (num > 1 ? fiboArr : ["error"] );
 }
 console.log(createFiboSeries(9)); // [0,1,1,2,3,5,8,13,21]
@@ -115,7 +115,7 @@ console.log("Factorial of 5 is: ", findFactorial(5)); // Factorial of 5 is: 120
 ```javascript
 const isPrime = (num) => {
   for( i = 2; i < num / 2; i++) {
-		if( num%i === 0)
+      if( num%i === 0)
          return false;
   }
   return num <= 0 ? false : true;
