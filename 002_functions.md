@@ -36,7 +36,7 @@ console.log(noOfWords("We are neoGrammers"));
 **Input:** `findMin(3,5,9,1)` ––> **Output:** `1`  
 *(Hint: Lookup rest parameters in JavaScript)*
 ```javascript
-const findMin = (...rest) => rest.reduce((accumulator, instance) => instance < accumulator ? instance : accumulator );
+const findMin = (...rest) => Math.min(...rest)
 console.log(findMin(3,5,9,1)); //1
 ```
 5. Given n numbers, your function should return the maximum of them all. The number of parameters won't be accepted from user.  
@@ -45,7 +45,7 @@ console.log(findMin(3,5,9,1)); //1
 **Input:** `findMax(3,5,9,1)` ––> **Output:** `9`  
 *(Hint: Lookup rest parameters in JavaScript)*
 ```javascript
-const findMax = (...rest) => rest.reduce((accumulator, instance) => instance > accumulator ? instance : accumulator );
+const findMax = (...rest) => Math.max(...rest)
 console.log(findMax(3,5,9,1)); //9
 ```
 6. Given three angles of a triange, your function should return if it is a scalen, isosceles, equilateral triangle or not a triangle at all.
@@ -106,12 +106,9 @@ console.log(charAt("neoGcamp", 4));
 **Input:** `minDate('02/05/2021', '24/01/2021')` ––> **Output:** `24/01/2021`
 ```javascript
 const minDate = (date1, date2) => {
-  let [day1, month1, year1] = date1.split("/");
-  let [day2, month2, year2] = date2.split("/");
-  let min = (year1 <  year2) ? date1 : (year1 !== year2 ? date2 : "equal" );
-  min = (year1 === year2 &&  month1 < month2) ? date1 : (month1 !== month2 ? date2: "equal" );
-  min = (month1 === month2 && day1 < day2) ? date1 : (day1 !== day2 ? date2 : "equal");
-  return min;
+  let d1 = new Date(date1.split("/").join("-"));
+  let d2 = new Date(date2.split("/").join("-"));
+  return d1 < d2 ? date1 : date2;
 }
 console.log(minDate('02/05/2021', '24/01/2021'));
 ```
