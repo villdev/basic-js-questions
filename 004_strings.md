@@ -3,14 +3,37 @@
 ## Beginner to Intermediate
 
 1. Write a program that converts the string into uppercase
+```javascript
+const upperCaseString = (str) => str.toUpperCase();
+console.log(upperCaseString("test"));
+```
 
-1. Write a program that reads two strings and append first string to the second. So if first string is Good second string is Morning , the program should print MorningGood
+2. Write a program that reads two strings and append first string to the second. So if first string is Good second string is Morning , the program should print MorningGood
+```javascript
+const appendFirstToSecond = (str1,str2) => str2 + str1;
+console.log(appendFirstToSecond("good", "morning"));
+```
 
-1. Program that reads string and count number of characters present in the string
+3. Program that reads string and count number of characters present in the string
+```javascript
+const stringLength = str => str.length;
+console.log(stringLength("test"));
+```
 
-1. Write a program that converts string like "124" to 124
+4. Write a program that converts string like "124" to 124
+```javascript
+const strToNumber = str => +str;
+console.log(strToNumber("123"))
+```
 
-1. Write a program to delete all vowels from a string. Assume string is not more than 80 characters long
+5. Write a program to delete all vowels from a string. Assume string is not more than 80 characters long
+```javascript
+const delVowel = str => {
+  const temp = [...str];
+ 	return temp.filter(c=>!["a","e","i","o","u"].includes(c)).join("")
+}
+console.log(delVowel("hello"))
+```
 
 1. Write a program to check whether the string is alphanumeric or not , eg:batman@45 contains digit 45
 
