@@ -166,7 +166,7 @@ const cycRotate = (num, n) => {
     if(i === temp.length)
       i = 0;
   }
-  return result
+  return +result
 }
 console.log(cycRotate(1234,2))
 ```
